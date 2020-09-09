@@ -1,0 +1,48 @@
+﻿@model FutureValues2.Models.FutureValueModel
+@{
+    ViewBag.Title = "Future Value Calculator";
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/custom.css" />
+</head>
+        
+        
+        <div class="row">
+            <h1 class="display-4">Future Value Calculator</h1>
+            <form asp-action="Index" method="post" class="form-horizontal">
+                <div asp-validation-summary="All"></div>
+                <div class="row">
+                    <label asp-for="MonthlyInvestment" class="control-label col-sm-3"> Monthly Investment:</label>
+                    <input asp-for="MonthlyInvestment" class="form-control col-sm-3" />
+                    <span asp-validation-for="MonthlyInvestment" class="text-danger col"></span>
+                </div>
+                <div class="row">
+                    <label asp-for="YearlyInterestRate" class="control-label col-sm-3"> Yearly Interest Rate:</label>
+                    <input asp-for="YearlyInterestRate" class="form-control col-sm-3" />
+                    <span asp-validation-for="YearlyInterestRate" class="text-danger col"></span>
+                </div>
+                <div class="row">
+                    <label asp-for="Years" class="control-label col-sm-3"> Number of Years:</label>
+                    <input asp-for="Years" class="form-control col-sm-3" />
+                    <span asp-validation-for="Years" class="text-danger col"></span>
+                </div>
+                <div class="row">
+                    <label class="control-label col-sm-3">Future Value:</label>
+                    <label class="form-control col-sm-3">@ViewBag.FV.ToString("c2")</label>
+                </div>
+                <div class="row">
+                    <div class="col offset-sm-3 pl-0">
+                        <button type="submit" class="btn btn-primary">
+                            Calculate
+                        </button>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Clear</a>
+                    </div>
+                </div>
+            </form>
+
+            <img src="~/Images/money.jpg" alt="money growing" style="border-radius: 20px; width:100%;" class="col-md-4"/>
+        </div>
